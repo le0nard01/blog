@@ -15,7 +15,6 @@ class BlogPostTemplate extends React.Component {
 		const siteBio = get(this, "props.data.config.html");
 		const siteDescription = post.excerpt;
 		const { previous, next } = this.props.pageContext;
-		const useFolks = !!(post || { useFolks: false }).useFolks;
 
 		return (
 			<Layout
