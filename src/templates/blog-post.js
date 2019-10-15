@@ -109,7 +109,7 @@ export const pageQuery = graphql`
 			timeToRead
 			frontmatter {
 				title
-				date(formatString: "YYYY-MM-DD")
+				# date(formatString: "YYYY-MM-DD")
 				description
 				useFolks
 				translations
