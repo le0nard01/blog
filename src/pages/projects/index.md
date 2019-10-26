@@ -3,7 +3,7 @@ useFolks: true
 title: "Criando projetos escaláveis"
 language: "pt-br"
 translations: ["pt-br"]
-date: "2019-19-10T23:59:59.999Z"
+date: "2019-10-19T23:59:59.999Z"
 description: "Muito além de /components e /pages"
 ---
 
