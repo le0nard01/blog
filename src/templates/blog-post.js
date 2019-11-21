@@ -8,21 +8,21 @@ import { rhythm, scale } from "../utils/typography";
 import { formatReadingTime } from "../utils/strings";
 import End from "../components/End";
 
-function BlogPostTemplate() {
-	const post = this.props.data.markdownRemark;
-	const siteTitle = get(this.props, `data.config.frontmatter.title`);
-	const siteBio = get(this, "props.data.config.html");
+function BlogPostTemplate(props) {
+	const post = props.data.markdownRemark;
+	const siteTitle = get(props, `data.config.frontmatter.title`);
+	const siteBio = get(props, "props.data.config.html");
 	const siteDescription = post.excerpt;
-	const { previous, next } = this.props.pageContext;
+	const { previous, next } = props.pageContext;
 
 	return (
 		<Layout
-			location={this.props.location}
-			config={this.props.data.config}
+			location={props.location}
+			config={props.data.config}
 			translations={post.frontmatter.translations}
 		>
 			<Helmet
-				htmlAttributes={{ lang: this.props.pageContext.language }}
+				htmlAttributes={{ lang: props.pageContext.language }}
 				meta={[{ name: "description", content: siteDescription }]}
 				title={`${post.frontmatter.title} | ${siteTitle}`}
 			/>
