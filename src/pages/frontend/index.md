@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: [""]
 title: "E se eu precisar mudar só isso aqui?"
 language: "pt-br"
 translations: ["pt-br"]

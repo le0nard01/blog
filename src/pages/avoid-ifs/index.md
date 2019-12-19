@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["javascript","tricks"]
 title: "JS Tricks, evitando ifs"
 language: "pt-br"
 translations: ["pt-br"]

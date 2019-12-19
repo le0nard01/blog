@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["frontend"]
 title: "Criando projetos escaláveis"
 language: "pt-br"
 translations: ["pt-br"]

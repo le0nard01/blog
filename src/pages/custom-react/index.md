@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["react", "redux", "frontend"]
 title: "Construindo um frontend flexível"
 language: "pt-br"
 translations: ["pt-br"]
@@ -422,21 +423,21 @@ Bom, acho que não foi nada tão complicado, mas quebrou um galhão, e eu tenho 
 
 Tudo ótimo. Ta tudo maneiro. Mas esse tanto de mudança acabou impactando no desempenho da aplicação. O `bundle.js` está beirando os 600KB. Eu estava incomodado com isso, mas devido a estrutura do roteador de UI, eu não podia aplicar uma regra de [code-splitting](https://reactjs.org/docs/code-splitting.html), pois meu path de assets é diferente do domínio o qual eu acesso, então o Suspense/Lazy não sabe lidar com isso.
 
-Mas se eu to falando disso...é por que eu tive que resolver. E é esse problema em específico que me motivou ainda mais a escrever esse artigo mais *deep dive* na construção dessa UI.
+Mas se eu to falando disso...é por que eu tive que resolver. E é esse problema em específico que me motivou ainda mais a escrever esse artigo mais _deep dive_ na construção dessa UI.
 
 ## "Cara, o site ta muito lento pra abrir, preciso resolver isso urgente"
 
-Antes de continuar, preciso desabafar e dizer que eu quase dei uma resposta do tipo 
+Antes de continuar, preciso desabafar e dizer que eu quase dei uma resposta do tipo
 
 > "Jura que ta lento, talvez tenha sido o tanto de requisito não funcional que acabou aumentando o projeto consideravelmente"
 
 Mas fazer isso custa o emprego, e eu não quero perder a equipe maravilhosa que tenho :). Apenas aceitei o desafio, mas com uma sensação de derrota, pois já fazem 3 meses que venho pesquisando sobre como fazer o code splitting numa arquitetura semelhante a minha e não consegui achar nada que me desse uma luz.
 
-Por incrível que pareça, quando eu foquei só nesse problema, eu consegui resolver em umas 3h. Nem eu acreditei. Foram 5h de rascunho de ideias e 3h de *"Cara, se eu tentar isso aqui e mais isso, provavelmente vai funcionar"*. Seguem as ideias
+Por incrível que pareça, quando eu foquei só nesse problema, eu consegui resolver em umas 3h. Nem eu acreditei. Foram 5h de rascunho de ideias e 3h de _"Cara, se eu tentar isso aqui e mais isso, provavelmente vai funcionar"_. Seguem as ideias
 
 1. Criar um proxy no roteador de UI que recebe as requisições e a cada pattern de chunk do webpack, ele redireciona para o bucket S3 correto do tenant. Obviamente essa solução é custosa ao extremo, ineficiente e extremamente maluca. Isso se chama desespero
 
-2. Criar um script que força a URL dos tenants e mudar o versionamento da UI para  v0.0.0-nome-do-tenant. E na hora de fazer o build, ter um script `.sh` que faz um replace no pattern dos chunks para a minha URL do bucket S3, de acordo com o `nome-do-tenant`. Essa ideia eu considerei muito, apesar de ser uma master gambiarra que iria impactar em toda a vida do software, e com um impacto negativo.
+2. Criar um script que força a URL dos tenants e mudar o versionamento da UI para v0.0.0-nome-do-tenant. E na hora de fazer o build, ter um script `.sh` que faz um replace no pattern dos chunks para a minha URL do bucket S3, de acordo com o `nome-do-tenant`. Essa ideia eu considerei muito, apesar de ser uma master gambiarra que iria impactar em toda a vida do software, e com um impacto negativo.
 
 3. Orar
 
@@ -450,9 +451,9 @@ Por incrível que pareça, quando eu foquei só nesse problema, eu consegui reso
 
 8. Estudar o webpack num nível absurdo
 
-Bom, não preciso falar qual desses itens eu fiz. A resposta é **Todos, exceto o primeiro e segundo**. 
+Bom, não preciso falar qual desses itens eu fiz. A resposta é **Todos, exceto o primeiro e segundo**.
 
-Eu sempre odiei ter que lidar com o webpack, acho que mexer num webpack gerado pelo CRA é pior ainda. Apesar disso tudo, sempre soube do poder do webpack, mas nunca soube que ele fazia mágica, e não é sacanagem, a parada é mágica mesmo. 
+Eu sempre odiei ter que lidar com o webpack, acho que mexer num webpack gerado pelo CRA é pior ainda. Apesar disso tudo, sempre soube do poder do webpack, mas nunca soube que ele fazia mágica, e não é sacanagem, a parada é mágica mesmo.
 
 Antes de dar a solução, eu gostaria de falar que o `bundle.js` de quase 600KB virou vários chunks de no máximo 10KB. O maior deles, que é quem contém os arquivos de actions do redux e regras de negócio, ficou com 120KB. Surreal demais. Isso não é magia, é o poder do code-splitting com a API maravilhosa do Suspense/Lazy que o React nos dá para fazer um frontend descente.
 
@@ -465,16 +466,16 @@ declare let __webpack_public_path__: string;
 __webpack_public_path__ = `https://buckets.amazao/${$__OBJECT__.tenant}/sites/${$__OBJECT__.version}/`;
 ```
 
-Pronto, é isso aí. Problema resolvido. Nem eu acreditei, e escrevendo isso agora eu estou rindo feito bobo que apenas isso resolveu um problema que eu queria resolver a mais de 3 meses. 
+Pronto, é isso aí. Problema resolvido. Nem eu acreditei, e escrevendo isso agora eu estou rindo feito bobo que apenas isso resolveu um problema que eu queria resolver a mais de 3 meses.
 
-Vale lembrar que a nota de performance do lighthouse saiu de 3 (no pior caso de internet lenta e celulares fracos) para 92 (no mesmo caso citado). 
+Vale lembrar que a nota de performance do lighthouse saiu de 3 (no pior caso de internet lenta e celulares fracos) para 92 (no mesmo caso citado).
 
 Bom, consegui fazer um grande relato que queria fazer a muito tempo, de forma mais explicada, com exemplos reais. E mesmo que você tenha lido isso tudo e está se perguntando
 
 > "Mas Allan, isso não é gambiarra? Usar window como variável global pra sua aplicação poder consumir"
 
-Eu também pensei a mesma coisa logo que comecei com tudo isso, mas cara...é Javascript. Mesmo com o boas práticas, Typescript, ReasonML, Fable, NativeScript, pensamento OO, pensamento funcional, lints rígidos que não vão deixar você fazer um código porco, testes e o que mais para garantir uma boa escrita de código. Ainda com isso tudo, é Javascript. Da uma lida na [história do Javascript](https://en.wikipedia.org/wiki/JavaScript) e talvez você se ligue mais sobre o que to falando. Sempre que tiver algo mais bizarro de performance ou compartilhar informação, você vai cair num caso parecido. 
+Eu também pensei a mesma coisa logo que comecei com tudo isso, mas cara...é Javascript. Mesmo com o boas práticas, Typescript, ReasonML, Fable, NativeScript, pensamento OO, pensamento funcional, lints rígidos que não vão deixar você fazer um código porco, testes e o que mais para garantir uma boa escrita de código. Ainda com isso tudo, é Javascript. Da uma lida na [história do Javascript](https://en.wikipedia.org/wiki/JavaScript) e talvez você se ligue mais sobre o que to falando. Sempre que tiver algo mais bizarro de performance ou compartilhar informação, você vai cair num caso parecido.
 
-E lembre-se *"Se o Facebook controla a versão que do React fazendo um append no objeto window, por que eu não posso configurar a minha UI da mesma forma?"*
+E lembre-se _"Se o Facebook controla a versão que do React fazendo um append no objeto window, por que eu não posso configurar a minha UI da mesma forma?"_
 
 Pense nisso amiguinho, o errado é não resolver seu problema. Se a solução atende o seu negócio, sua equipe entrou em concenso sobre a adoção da técnica e a manutenção não está custosa, meus parabéns, você é um verdadeiro engenheiro da computação. E pra finalizar, aquele abraço e quaisquer dúvidas, você sabe onde me encontrar xD

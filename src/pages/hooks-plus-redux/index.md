@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["react", "redux", "frontend"]
 title: "Hooks + Redux"
 language: "pt-br"
 translations: ["pt-br"]
@@ -181,11 +182,11 @@ const useDeleteClient = () => {
 			.then((e) => {
 				if (e.ok) {
                     setState({ loading: false, success: true });
-                    // ações do redux serão realizadas aqui 
+                    // ações do redux serão realizadas aqui
                     // em caso de sucesso
 				} else {
                     setState({ loading: false, success: false });
-                    // ações do redux serão realizadas aqui 
+                    // ações do redux serão realizadas aqui
                     // em caso de falha da requisição
 				}
 			})
@@ -208,8 +209,8 @@ const DeleteClient42Button = () => {
         Notification.show("O cliente 42 foi deletado")
     }
 	return (
-            <Button 
-                disabled={state.loading} 
+            <Button
+                disabled={state.loading}
                 onClick={delete}>
                 Deletar o Cliente 42
             </Button>

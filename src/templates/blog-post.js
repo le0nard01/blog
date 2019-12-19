@@ -4,9 +4,9 @@ import { Link, graphql } from "gatsby";
 import get from "lodash/get";
 import Bio from "../components/Bio";
 import Layout from "../components/Layout";
-import { rhythm, scale } from "../utils/typography";
 import { formatReadingTime } from "../utils/strings";
 import End from "../components/End";
+import { scale, rhythm } from "../utils/typography";
 
 function BlogPostTemplate(props) {
 	const post = props.data.markdownRemark;
@@ -26,7 +26,7 @@ function BlogPostTemplate(props) {
 				meta={[{ name: "description", content: siteDescription }]}
 				title={`${post.frontmatter.title} | ${siteTitle}`}
 			/>
-			<h1>{post.frontmatter.title}</h1>
+			<h1 className="mt5">{post.frontmatter.title}</h1>
 			<p
 				className="text"
 				style={{
@@ -64,14 +64,14 @@ function BlogPostTemplate(props) {
 				<li>
 					{previous && (
 						<Link to={previous.fields.slug} rel="prev">
-							← {previous.frontmatter.title}
+							{previous.frontmatter.title}
 						</Link>
 					)}
 				</li>
 				<li>
 					{next && (
 						<Link to={next.fields.slug} rel="next">
-							{next.frontmatter.title || "..."} →
+							{next.frontmatter.title || "..."}
 						</Link>
 					)}
 				</li>
@@ -96,7 +96,6 @@ export const pageQuery = graphql`
 			}
 			frontmatter {
 				title
-				useFolks
 				language
 			}
 		}
@@ -110,6 +109,7 @@ export const pageQuery = graphql`
 				date(formatString: "YYYY-MM-DD")
 				description
 				useFolks
+				subjects
 				translations
 			}
 		}

@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["react", "typescript", "frontend", "tricks"]
 title: "MultiTenants, controle de acesso e Code Splitting"
 language: "pt-br"
 translations: ["pt-br"]
@@ -293,7 +294,7 @@ const useInjectReducer = (key: string, reducer: Reducer<any>) => {
 };
 ```
 
-E isso é tudo. Na hora de importar seu reducer, não esqueça de definir o estado inicial para o primeiro render não quebrar, pois nele não existirá o seu reducer ainda. E com isso os reducers serão acrescentados dinâmicamente ao nosso app. 
+E isso é tudo. Na hora de importar seu reducer, não esqueça de definir o estado inicial para o primeiro render não quebrar, pois nele não existirá o seu reducer ainda. E com isso os reducers serão acrescentados dinâmicamente ao nosso app.
 
 ### Planejamento futuro
 
@@ -305,7 +306,7 @@ E isso é tudo. Na hora de importar seu reducer, não esqueça de definir o esta
 
 ### Conclusão
 
-Apesar de parecer muito código, depois que se entende o que deve fazer, tudo fica bem mais claro. A experiência de desenvolvimento com essa prática tem sido bem aceitável, apenas alguns glitches acontecem quando algum componente é atualizado e a tela fica branca, mas nada que fosse realmente impactar. 
+Apesar de parecer muito código, depois que se entende o que deve fazer, tudo fica bem mais claro. A experiência de desenvolvimento com essa prática tem sido bem aceitável, apenas alguns glitches acontecem quando algum componente é atualizado e a tela fica branca, mas nada que fosse realmente impactar.
 
 Se você precisa de uma aplicação que seja modularizada, algo próximo de um micro frontend, essa é uma prática que pode ajudar. Apesar de tudo o que foi feito aqui ter sido com React, creio que o mindset funcione para qualquer outro framework, apenas suas ferramentas serão diferentes.
 

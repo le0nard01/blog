@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Fira+Code|Montserrat&display=swap');
+@import url('https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css');
+
+body::-webkit-scrollbar-track {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-color: #1c1f27;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+  background-color: #1c1f27;
+}
+
+body::-webkit-scrollbar-thumb {
+  border: 1px solid var #483D8B;
+  background-color: #483D8B;
+}
 
 html,
 body,
@@ -8,17 +25,9 @@ body,
 }
 
 .text {
-  font-size: 18px;
+  font-size: 1rem;
+  line-height: 1.75;
   font-family: 'Didact Gothic', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Montserrat', sans-serif;
 }
 
 body,
@@ -30,7 +39,16 @@ h3,
 h4,
 h5,
 h6 {
-  color: #c1d0d6;
+  color: #f2f6fc;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 a {
@@ -125,7 +143,7 @@ pre[class*='language-'] ::selection {
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
+:not(pre)>code[class*='language-'] {
   border-radius: 0.3em;
   background: var(--inlineCode-bg);
   color: var(--inlineCode-text);
@@ -228,4 +246,31 @@ pre[data-line] {
 .gatsby-highlight pre[class*='language-'] {
   float: left;
   min-width: 100%;
+}
+
+.tag:not(:empty) {
+  display: inline;
+  margin-right: 0.4rem;
+  margin-left: 0.4rem;
+  padding: 0.2rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  background-color: #483D8B;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #f2f6fc;
+}
+
+.tag:empty {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag:not(:empty)::before {
+  content: "#"
+}
+
+.tag:first-child {
+  margin-left: 0;
 }

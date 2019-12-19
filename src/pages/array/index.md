@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["javascript","tricks"]
 title: "Array.prototype"
 language: "pt-br"
 translations: ["pt-br"]

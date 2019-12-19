@@ -1,5 +1,6 @@
 ---
 useFolks: true
+subjects: ["node","cli"]
 title: "Node CLI"
 language: "pt-br"
 translations: ["pt-br"]
