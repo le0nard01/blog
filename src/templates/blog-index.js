@@ -86,6 +86,7 @@ function BlogIndex(props) {
 			<div className="flex justify-center items-center flex-nowrap">
 				<div className="w-100" style={{ flex: 2 }}>
 					<Input
+						
 						placeholder="O que tá afim de ler hoje?"
 						value={input}
 						onChange={(e) => setInput(e.target.value)}

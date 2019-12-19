@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import colors from "../utils/colors";
 
@@ -24,7 +24,7 @@ export const Styles = styled.div.attrs(
 	input {
 		color: ${colors.text};
 		background-color: transparent;
-		font-size: ${(props) => 1.4 * props.size}rem;
+		font-size: ${(props) => 1.2 * props.size}rem;
 		padding: 1rem 0 0 0;
 		display: block;
 		width: 100%;
@@ -44,7 +44,7 @@ export const Styles = styled.div.attrs(
 	}
 	label {
 		color: ${(props) => props.labelColor};
-		font-size: ${(props) => props.size * 1.1}rem;
+		font-size: ${(props) => props.size * 0.95}rem;
 		font-weight: bolder;
 		position: absolute;
 		pointer-events: none;
@@ -180,9 +180,19 @@ const Input = ({
 			{placeholder}
 		</label>
 	);
+	const ref = useRef({});
 	return (
 		<Styles {...containerProps}>
-			<input {...inputHtml} {...inputCommonProps} />
+			<input
+				onKeyDown={(e) => {
+					if (e.keyCode === 13) {
+						console.log(ref.current);
+					}
+				}}
+				{...inputHtml}
+				ref={ref}
+				{...inputCommonProps}
+			/>
 			<span className="bar" />
 			{Label}
 		</Styles>

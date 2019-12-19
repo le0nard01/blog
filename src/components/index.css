@@ -4,24 +4,25 @@
 body::-webkit-scrollbar-track {
   border: 1px solid transparent;
   border-radius: 50%;
-  background-color: #1c1f27;
+  background-color: #21252f;
 }
 
 body::-webkit-scrollbar {
   width: 8px;
-  background-color: #1c1f27;
+  background-color: #21252f;
 }
 
 body::-webkit-scrollbar-thumb {
-  border: 1px solid var #483D8B;
-  background-color: #483D8B;
+  border: 1px solid var #34619f;
+  background-color: #34619f;
 }
 
 html,
 body,
 #root {
-  height: 100%;
-  background-color: #1c1f27;
+  overflow-x: hidden;
+  min-height: 100%;
+  background-color: #21252f;
 }
 
 .text {
@@ -49,10 +50,11 @@ h4,
 h5,
 h6 {
   font-family: 'Montserrat', sans-serif !important;
+  line-height: 1.35;
 }
 
 a {
-  color: #483d8b;
+  color: #34619f;
   background-color: transparent;
   text-decoration: none;
   outline: none;
@@ -87,6 +89,11 @@ a[disabled] {
   pointer-events: none;
 }
 
+pre,
+code {
+  font-size: 0.85rem;
+}
+
 /**
  * Based on copypasta from Remy Bach and Sarah Drasner
  */
@@ -102,7 +109,7 @@ pre[class*='language-'] {
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
+  line-height: 1.75;
   margin-bottom: 0;
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -248,29 +255,29 @@ pre[data-line] {
   min-width: 100%;
 }
 
-.tag:not(:empty) {
-  display: inline;
+ul>.tag:not(:empty) {
+  display: inline-flex;
+  flex-wrap: nowrap;
   margin-right: 0.4rem;
-  margin-left: 0.4rem;
   padding: 0.2rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
-  background-color: #483D8B;
+  background-color: #34619f;
   font-weight: 900;
   letter-spacing: 2px;
   color: #f2f6fc;
 }
 
-.tag:empty {
+ul>.tag:empty {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.tag:not(:empty)::before {
+ul>.tag:not(:empty)::before {
   content: "#"
 }
 
-.tag:first-child {
+ul>.tag:first-child {
   margin-left: 0;
 }

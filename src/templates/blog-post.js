@@ -32,8 +32,8 @@ function BlogPostTemplate(props) {
 				style={{
 					...scale(-1 / 8),
 					display: "block",
-					marginBottom: rhythm(1.2),
-					marginTop: rhythm(-1),
+					marginBottom: rhythm(1),
+					marginTop: rhythm(-.7),
 				}}
 			>
 				{post.frontmatter.description} - {post.frontmatter.date} -{" "}
@@ -43,27 +43,26 @@ function BlogPostTemplate(props) {
 				className="text"
 				dangerouslySetInnerHTML={{ __html: post.html }}
 			/>
-			{post.frontmatter.useFolks && <End></End>}
+			{post.frontmatter.useFolks && <End />}
 			<hr
 				style={{
 					marginBottom: rhythm(1),
 				}}
 			/>
-			<Bio>
-				<div dangerouslySetInnerHTML={{ __html: siteBio }} />
-			</Bio>
 			<ul
 				style={{
 					display: "flex",
 					flexWrap: "wrap",
-					justifyContent: "space-between",
+					justifyContent: "space-around",
 					listStyle: "none",
+					fontFamily: "Montserrat, sans-serif",
 					padding: 0,
 				}}
 			>
 				<li>
 					{previous && (
 						<Link to={previous.fields.slug} rel="prev">
+							{"<- "}
 							{previous.frontmatter.title}
 						</Link>
 					)}
@@ -71,7 +70,7 @@ function BlogPostTemplate(props) {
 				<li>
 					{next && (
 						<Link to={next.fields.slug} rel="next">
-							{next.frontmatter.title || "..."}
+							{next.frontmatter.title || "..."} {" ->"}
 						</Link>
 					)}
 				</li>

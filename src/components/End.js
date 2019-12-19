@@ -1,10 +1,12 @@
 import React from "react";
+import img from "../assets/allfolks.gif";
 
 export default () => (
 	<div>
 		<img
+			style={{ minWidth: "15rem" }}
 			className="w-30 flex justify-center center tc"
-			src="https://vignette.wikia.nocookie.net/looneytunes/images/a/a4/THAT%27SALLGIFS.gif/revision/latest?cb=20160806162644"
+			src={img}
 		/>
 	</div>
 );

@@ -6,12 +6,7 @@ class Bio extends React.Component {
 	render() {
 		const { children } = this.props;
 		return (
-			<div
-				style={{
-					display: "flex",
-					marginBottom: rhythm(0),
-				}}
-			>
+			<div style={{ display: "flex", marginBottom: rhythm(0) }}>
 				<img
 					src={profilePic}
 					alt={`Allan Garcez`}

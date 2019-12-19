@@ -19,8 +19,8 @@ exports.createPages = ({ graphql, actions }) => {
 							edges {
 								node {
 									frontmatter {
-                    language
-                    subjects
+										language
+										subjects
 									}
 								}
 							}

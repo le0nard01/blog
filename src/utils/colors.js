@@ -1,7 +1,7 @@
 export default {
-  bgColor: '#1c1f27',
+  bgColor: '#21252f',
   text: '#f2f6fc',
   textAlpha: '#f2f6fc50',
-  title: '#483D8B',
+  title: '#34619f',
   hover: '14e0bf',
 }

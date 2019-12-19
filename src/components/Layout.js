@@ -19,7 +19,7 @@ class Layout extends React.Component {
 			header = (
 				<h1
 					style={{
-						fontSize: "4rem",
+						fontSize: "3.2rem",
 						marginBottom: rhythm(1.5),
 						fontFamily: "Montserrat, sans-serif",
 						marginTop: 0,
@@ -44,7 +44,7 @@ class Layout extends React.Component {
 					style={{
 						marginTop: 0,
 						fontFamily: "Montserrat, sans-serif",
-						marginBottom: rhythm(-1),
+						marginBottom: rhythm(-1.5),
 					}}
 				>
 					<Link
