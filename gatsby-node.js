@@ -6,7 +6,7 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.createPages = ({ graphql, actions }) => {
 	const { createPage } = actions;
 	return new Promise((resolve, reject) => {
-		const blogIndex = path.resolve("./src/templates/blog-index.js");
+		const blogIndex = path.resolve("./src/templates/blog-index.jsx");
 		resolve(
 			graphql(
 				`
@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
 				});
 			})
 		);
-		const blogPost = path.resolve("./src/templates/blog-post.js");
+		const blogPost = path.resolve("./src/templates/blog-post.jsx");
 		_.each(["en", "pt-br"], (language) => {
 			resolve(
 				graphql(

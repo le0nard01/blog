@@ -254,30 +254,3 @@ pre[data-line] {
   float: left;
   min-width: 100%;
 }
-
-ul>.tag:not(:empty) {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  margin-right: 0.4rem;
-  padding: 0.2rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  background-color: #34619f;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #f2f6fc;
-}
-
-ul>.tag:empty {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-ul>.tag:not(:empty)::before {
-  content: "#"
-}
-
-ul>.tag:first-child {
-  margin-left: 0;
-}

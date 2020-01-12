@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 import get from "lodash/get";
 import Helmet from "react-helmet";
 import Bio from "../components/Bio";
@@ -22,6 +23,7 @@ const myArray = [
 	"cli",
 	"linux",
 ];
+
 const getRandom = () => myArray[Math.floor(Math.random() * myArray.length)];
 
 const translate = {
@@ -37,6 +39,38 @@ const translate = {
 	ô: "o",
 };
 const normalize = (s) => s.replace(chars, (match) => translate[match]);
+
+const UL = styled.ul`
+	margin-left: 0;
+	padding: 0;
+	margin-bottom: 0;
+	& > .tag:not(:empty) {
+		display: inline-flex;
+		flex-wrap: nowrap;
+		margin-right: 0.4rem;
+		padding: 0.2rem;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
+		background-color: #34619f;
+		font-weight: 900;
+		letter-spacing: 2px;
+		color: #f2f6fc;
+	}
+
+	& > .tag:empty {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	& > .tag:not(:empty)::before {
+		content: "# ";
+	}
+
+	& > .tag:first-child {
+		margin-left: 0;
+	}
+`;
 
 function BlogIndex(props) {
 	const [input, setInput] = useState("");
@@ -86,7 +120,6 @@ function BlogIndex(props) {
 			<div className="flex justify-center items-center flex-nowrap">
 				<div className="w-100" style={{ flex: 2 }}>
 					<Input
-						
 						placeholder="O que tá afim de ler hoje?"
 						value={input}
 						onChange={(e) => setInput(e.target.value)}
@@ -127,16 +160,19 @@ function BlogIndex(props) {
 							{node.frontmatter.date} -{" "}
 							{formatReadingTime(node.timeToRead)}
 						</small>
-						<ul className="ml0 pa0 mb0">
+						<UL>
 							{node.frontmatter.subjects.map((x) => (
 								<li
 									key={`${x}-${node.fields.slug}`}
 									className="text tag"
+									style={{
+										marginTop: rhythm(0.2),
+									}}
 								>
 									{x}
 								</li>
 							))}
-						</ul>
+						</UL>
 						<p className="text mb1">
 							<b>{node.frontmatter.description}</b>
 						</p>
