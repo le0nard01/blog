@@ -13,7 +13,7 @@ function Layout({ location, config, children, translations }) {
 				style={{
 					fontSize: "3.2rem",
 					marginBottom: rhythm(1.5),
-					fontFamily: "Montserrat, sans-serif",
+					fontFamily: "Noto Sans, sans-serif",
 					marginTop: 0,
 				}}
 			>
@@ -22,7 +22,7 @@ function Layout({ location, config, children, translations }) {
 						boxShadow: "none",
 						textDecoration: "none",
 						color: "inherit",
-						fontFamily: "Montserrat, sans-serif",
+						fontFamily: "Noto Sans, sans-serif",
 					}}
 					to={config.fields.slug}
 				>
@@ -35,7 +35,7 @@ function Layout({ location, config, children, translations }) {
 			<h3
 				style={{
 					marginTop: 0,
-					fontFamily: "Montserrat, sans-serif",
+					fontFamily: "Noto Sans, sans-serif",
 					marginBottom: rhythm(-1.5),
 				}}
 			>
@@ -44,7 +44,7 @@ function Layout({ location, config, children, translations }) {
 						boxShadow: "none",
 						textDecoration: "none",
 						color: "inherit",
-						fontFamily: "Montserrat, sans-serif",
+						fontFamily: "Noto Sans, sans-serif",
 					}}
 					to={"/"}
 				>
@@ -58,7 +58,7 @@ function Layout({ location, config, children, translations }) {
 			style={{
 				marginLeft: "auto",
 				marginRight: "auto",
-				fontFamily: "Montserrat, sans-serif",
+				fontFamily: "Noto Sans, sans-serif",
 				maxWidth: rhythm(32),
 				padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
 			}}

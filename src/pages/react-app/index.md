@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["react", "typescript", "frontend", "tricks"]
+subjects: ["react", "typescript", "frontend", "tricks","hooks"]
 title: "MultiTenants, controle de acesso e Code Splitting"
 language: "pt-br"
 translations: ["pt-br"]

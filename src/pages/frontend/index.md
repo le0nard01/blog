@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: [""]
+subjects: ["react","frontend","typescript","javascript"]
 title: "E se eu precisar mudar só isso aqui?"
 language: "pt-br"
 translations: ["pt-br"]
@@ -102,7 +102,7 @@ Bom, com isso aí já da pra começar a ter uma ideia. Esse arquivo é gerado de
 
 Vamos começar do zero sobre como eu criei essa estratégia para o front.
 
-```shellscript
+```bash
 npm i -g create-react-app
 create-react-app awesome-project
 cd awesome-project

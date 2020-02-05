@@ -1,7 +1,7 @@
 export const formatReadingTime = (minutes = 0) => {
-	const cups = Math.round(minutes / 5);
-	if (cups > 3) {
-		return `${new Array(Math.round(cups / Math.E))
+	const cups = Math.round(minutes / Math.PI);
+	if (cups > 4) {
+		return `${new Array(Math.round(cups / Math.PI))
 			.fill("🍱")
 			.join("")} ${minutes} min de leitura`;
 	} else {

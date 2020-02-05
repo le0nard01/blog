@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["react", "redux", "frontend"]
+subjects: ["react", "redux", "frontend","javascript","typescript","css"]
 title: "Construindo um frontend flexível"
 language: "pt-br"
 translations: ["pt-br"]

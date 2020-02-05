@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["react", "redux", "frontend"]
+subjects: ["react", "redux", "frontend","typescript","javascript","hooks"]
 title: "Hooks + Redux"
 language: "pt-br"
 translations: ["pt-br"]

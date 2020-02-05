@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["hooks", "react", "typescript"]
+subjects: ["hooks", "react", "typescript","javascript","frontend"]
 title: "React Hooks"
 language: "pt-br"
 translations: ["pt-br"]

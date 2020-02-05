@@ -1,6 +1,7 @@
 import React from "react";
 import profilePic from "./profile-pic.jpg";
 import { rhythm } from "../utils/typography";
+import Share from "./Share";
 
 const Bio = ({ children }) => {
 	return (

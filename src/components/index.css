@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Fira+Code|Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Fira+Code&display=swap');
 @import url('https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css');
 
 body::-webkit-scrollbar-track {
@@ -28,7 +28,7 @@ body,
 .text {
   font-size: 1rem;
   line-height: 1.75;
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 body,
@@ -49,7 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Noto Sans', sans-serif !important;
   line-height: 1.35;
 }
 
@@ -253,4 +253,46 @@ pre[data-line] {
 .gatsby-highlight pre[class*='language-'] {
   float: left;
   min-width: 100%;
+}
+
+.hover-facebook:hover {
+  color: #ffffff
+}
+
+.hover-facebook:hover {
+  background-color: #3C5A98
+}
+
+.hover-linkedin:hover {
+  color: #ffffff
+}
+
+.hover-linkedin:hover {
+  background-color: #0077B5
+}
+
+
+.hover-twitter:hover {
+  color: #ffffff
+}
+
+.hover-twitter:hover {
+  background-color: #1DA1F2
+}
+
+
+.hover-telegram:hover {
+  color: #ffffff
+}
+
+.hover-telegram:hover {
+  background-color: #33AAE0
+}
+
+.hover-reddit:hover {
+  color: #ffffff
+}
+
+.hover-reddit:hover {
+  background-color: #FF4500
 }

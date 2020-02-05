@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["javascript","tricks"]
+subjects: ["javascript","tricks","typescript"]
 title: "Array.prototype"
 language: "pt-br"
 translations: ["pt-br"]

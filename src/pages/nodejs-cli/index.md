@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["node","cli"]
+subjects: ["node","cli","javascript","typescript"]
 title: "Node CLI"
 language: "pt-br"
 translations: ["pt-br"]
@@ -22,7 +22,7 @@ Como o mundo de JS é bastante vasto, existem centenas de boilerplates pra você
 
 Vou me ater ao simples de uma CLI pra ordenar versões de tags do git. Usando bash, poderiamos usar o comando `sort`, fazendo o seguinte comando `git tag | sort -V`. Mas como o foco é um CLI em NodeJS, vamos lá:
 
-```shellscript
+```bash
 $ mkdir my-cli
 $ cd my-cli
 $ npm init -y
@@ -101,7 +101,7 @@ Se você estiver no VsCode, aconselho usar `CTRL+Space` nos campos para ver o qu
 
 Como vamos usar TS, é bom em conjunto usar o [`TSLint`](https://palantir.github.io/tslint/) pra evitar quaisquer :shit:.
 
-```shellscript
+```bash
 npm i -g tslint
 tslint --init
 ```
@@ -114,7 +114,7 @@ Como todo bom programador em NodeJS, você deve ser dependente de diversos...pac
 
 > Eu curto utilizar o yarn sempre que possível nos meus projetos, pra caso um dia eu pense em usar o workspaces do yarn
 
-```shellscript
+```bash
 $ yarn add typescript semver commander signale chalk
 $ yarn add --dev @types/node @types/semver @types/signale
 ```
@@ -193,7 +193,7 @@ program.parse(process.argv);
 
 E pronto, temos nosso primeiro CLI em TS. Para você rodar ele como Node, basta realizar esses passos
 
-```shellscript
+```bash
 $ tsc # Isso irá transpilar do diretório src para cli
 $ node cli tag # Ou então
 $ node cli t # alias definido no programa

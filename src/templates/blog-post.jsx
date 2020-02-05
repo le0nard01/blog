@@ -1,20 +1,17 @@
+import { graphql, Link } from "gatsby";
+import get from "lodash/get";
 import React from "react";
 import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
-import get from "lodash/get";
-import Bio from "../components/Bio";
+import End from "../components/End";
 import Layout from "../components/Layout";
 import { formatReadingTime } from "../utils/strings";
-import End from "../components/End";
-import { scale, rhythm } from "../utils/typography";
+import { rhythm, scale } from "../utils/typography";
 
 function BlogPostTemplate(props) {
 	const post = props.data.markdownRemark;
 	const siteTitle = get(props, `data.config.frontmatter.title`);
-	const siteBio = get(props, "props.data.config.html");
 	const siteDescription = post.excerpt;
 	const { previous, next } = props.pageContext;
-
 	return (
 		<Layout
 			location={props.location}
@@ -33,7 +30,7 @@ function BlogPostTemplate(props) {
 					...scale(-1 / 8),
 					display: "block",
 					marginBottom: rhythm(1),
-					marginTop: rhythm(-.7),
+					marginTop: rhythm(-0.7),
 				}}
 			>
 				{post.frontmatter.description} - {post.frontmatter.date} -{" "}
@@ -43,7 +40,13 @@ function BlogPostTemplate(props) {
 				className="text"
 				dangerouslySetInnerHTML={{ __html: post.html }}
 			/>
-			{post.frontmatter.useFolks && <End />}
+			{post.frontmatter.useFolks && (
+				<End
+					route={props.location.href}
+					text={post.frontmatter.description}
+					title={post.frontmatter.title}
+				/>
+			)}
 			<hr
 				style={{
 					marginBottom: rhythm(1),
@@ -55,7 +58,7 @@ function BlogPostTemplate(props) {
 					flexWrap: "wrap",
 					justifyContent: "space-around",
 					listStyle: "none",
-					fontFamily: "Montserrat, sans-serif",
+					fontFamily: "Noto Sans, sans-serif",
 					padding: 0,
 				}}
 			>
