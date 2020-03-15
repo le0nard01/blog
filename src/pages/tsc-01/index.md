@@ -4,7 +4,7 @@ subjects: ["typescript", "tricks"]
 title: "Typescript 101 - [1]"
 language: "pt-br"
 translations: ["pt-br"]
-date: "2020-02-10T23:29:59.999Z"
+date: "2020-02-20T23:29:59.999Z"
 description: "Vantagens e desvantagens"
 ---
 
