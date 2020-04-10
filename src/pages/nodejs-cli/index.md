@@ -70,7 +70,7 @@ Como vamos usar [Typescript](https://www.typescriptlang.org), tanto `main` quant
 
 O primeiro passo antes de tudo é criar um `tsconfig.json`. Caso você não tenha typescript no PC, vamos resolver isso agora para fazer nossa CLI
 
-```shellcript
+```bash
 $ npm i -g typescript
 $ tsc --init
 ```

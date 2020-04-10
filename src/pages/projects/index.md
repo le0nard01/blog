@@ -16,7 +16,7 @@ Isso é um problema absurdo, por que acaba-se andando muito entre diretórios e 
 
 Entre conversas, leituras do DDD (Domain Driven Design) e podcasts, acabei adotando uma estrutura de projeto um pouco diferente do comum, mas que faz muito sentido. Talvez você possa fazer alguma associação com ducks (se vier da comunidade React), mas acho que a parada é um pouco diferente. Um nome que ouvi bastante para isso foi `Scope named packages`. Se liga numa estrutura básica
 
-```
+```bash
 ├── build
 ├── docs
 ├── package.json
