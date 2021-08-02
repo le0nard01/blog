@@ -58,7 +58,16 @@ span {
   width: fit-content;
 }
 
+/* le0nard01 */
 svg {
   height: 1.5em;
   width: 1.5em;
+}
+
+.remark-highlight {
+  margin-bottom: 16px;
+}
+
+.img {
+  margin-bottom: 16px;
 }
