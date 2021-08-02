@@ -1,16 +1,14 @@
 ---
 useFolks: true
-subjects: ["openstack","all-in-one","single node"]
-title: "OpenStack - Single Node"
+subjects: ["openstack","installation","allinone","single node"]
+title: "OpenStack AllInOne from Scratch"
 language: "pt-br"
 translations: ["pt-br"]
 date: "2021-07-02T14:30:00.999Z"
-description: "Instalação do OpenStack na mão, All-In-One e com Single NIC"
+description: "Instalação do OpenStack na mão, All-In-One e com Single NIC."
 ---
 
-# Openstack All-In-One *from Scratch*
-
-## Inicio
+# Inicio
 
 Tive resquícios de contato com o OpenStack nestes últimos tempos, após este curto entendimento sobre este *IaaS (Infraestrutura como serviço)*, tive a necessidade de explorar , pois me despertou certa curiosidade e interesse no assunto. E com um excelente adendo ao meu interesse, um projeto **Open Source**.
 
@@ -45,7 +43,7 @@ alias snano="sudo nano "
 alias ccat="sudo egrep -v '^\s*(#|$)' " # Comando para ler arquivos de configurações sem os comentarios, assim fica mais limpo de ve e configurar.
 ```
 
-## Estrutura 
+# Estrutura 
 
 A estrutura do OpenStack é bem subdividida em diversas API, e cada uma cuida de um setor dentro do eco-sistema, comumente muito bem interligadas. Darei uma breve explicação de cada nesta seção.
 
@@ -55,7 +53,7 @@ Cada serviço possui uma atividade dentro do ambiente, que irá fazer interaçã
 
 Dentro do escopo de serviços vitais para o funcionamento mínimo do OpenStack, há apenas 5 serviços: Serviço de identidade (**keystone**), Serviço de Imagem (**glance**), Serviço de Recurso (**placement**), Serviço de Computação (**nova**), Serviço de Redes (**neutron**). Com o funcionamento desses serviços é possível fazer o Deploy de uma instância. 
 
-### Pré-Requisitos
+## Pré-Requisitos
 
 Estarei subindo o projeto em uma máquina com as seguintes configurações: 
 
@@ -86,7 +84,7 @@ Lembrando que, para virtualizações *Bare-Metal*, é necessário conferir se se
 
 Estarei utilizando a principio 16 GB de RAM e 330GB de HDD, mas com mais espaço disponível dentro do disco. As partições estão em LVM, para futuras mudanças de espaço das mesmas. Recomendo a utilização de EXT4 ao invés de XFS. Em um ambiente de testes como o meu, é possível utilizar menos recursos.
 
-## Ambiente
+# Ambiente
 [A instalação é parecida com a documentação](https://docs.openstack.org/install-guide/environment.html)
 
 É necessário preparar nossa máquina antes, fazendo alguns ajustes, antes de começar instalação do OpenStack.
@@ -178,7 +176,7 @@ SELINUX=disabled
 
 Após estas configurações, executar um *reboot* no servidor e verifique se há internet com um *ping 8.8.8.8*.
 
-### Preparando OpenStack
+## Preparando OpenStack
 
 Iremos ativar o repositório do **OpenStack** **Wallaby** (Versão que iremos utilizar durante a instalação) e também o repositório **powertools**. E rodar um *update* após:
 
@@ -198,7 +196,7 @@ dnf install python3-openstackclient
 
 *Eu recomendo vocês sempre testarem os serviços após a instalação, com o **systemctl status**, ou com alguma forma dentro da tool, para testar o funcionamento. Eu tive muitos problemas simples que desencadearam problemas complexos, que me fizeram perder muito tempo.*
 
-##### *SQL (MariaDB):*
+#### *SQL (MariaDB):*
 
 Primeiramente instale os pacotes do **MariaDB** e do **PyMySQL**:
 
@@ -232,7 +230,7 @@ e configurando o root do mysql:
 mysql_secure_installation
 ```
 
-##### *Message Queue (RabbitMQ)*
+#### *Message Queue (RabbitMQ)*
 
 O OpenStack interpreta além do RabbitMQ, os mensageiros Qpid e ZeroMQ. Vamos utilizar o RabbitMQ nesta ocasião, instale-o:
 
@@ -259,7 +257,7 @@ E conceda-o todas permissões necessarias:
 rabbitmqctl set_permissions openstack ".*" ".*" ".*"
 ```
 
-##### *Memcached*
+#### *Memcached*
 
 Eu tive alguns problemas com o Memcached seguindo as instruções da documentação por não estar utilizando IPv6, então irei adicionar mais alguns processos durante esta instalação. Primeiro faça a instalação do pacote:
 
@@ -286,7 +284,7 @@ systemctl start memcached.service
 
 Para verificar o funcionamento, utilize o comando `memcached-tool openstack:11211 stats`, caso ele não retorne *"Couldn't connect to openstack:11211"*, então está funcionando. *(É recomendável também utilizar o systemctl status memcached para verificar)*
 
-##### *Etcd*
+#### *Etcd*
 
 Bem fácil a instalação, assim como os serviços anteriores, vamos primeiro instalar o pacote:
 
@@ -320,7 +318,7 @@ systemctl enable etcd
 systemctl start etcd
 ```
 
-##### *Finalização*
+#### *Finalização*
 
 Verifique novamente o funcionamento dos serviços, certifique-se de que esta tudo **active (running)**, caso ocorra algum erro nos serviços, verifique os logs e o **jornalctl**, recomendo também verificar os status de todos os serviços e ver se há algum falhando:
 
@@ -331,7 +329,7 @@ systemctl #Verificar todos os serviços
 
 Não se esqueça de **não instalar nenhum serviço como root**, e sempre **evite utilizar sudo**, só utilize quando há a necessidade de permissões elevadas para executar/editar algo.
 
-## Keystone
+# Keystone
 
 ###### [A instalação é parecida com a documentação](https://docs.openstack.org/keystone/wallaby/install/index-rdo.html)
 
@@ -339,7 +337,7 @@ O Keystone é serviço de autenticação do OpenStack, ele orquestra as autentic
 
 ![OpenStack Keystone architecture | Download Scientific Diagram](https://www.researchgate.net/profile/Carlos-Da-Silva-17/publication/327680691/figure/fig3/AS:671532485468170@1537117229732/OpenStack-Keystone-architecture.png)
 
-##### *Pré-requisitos*
+#### *Pré-requisitos*
 
 Vamos começar a instalação criando um banco de dados e um usuário para este serviço (A maioria dos serviços precisam de um banco de dados próprio, então este processo se repete diversas vezes), primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -357,7 +355,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
 IDENTIFIED BY 'KEYSTONE_DBPASS';
 ```
 
-##### *Instalação e configuração*
+#### *Instalação e configuração*
 
 Primeiramente instale o pacote do keystone, apache e do WSGI:
 
