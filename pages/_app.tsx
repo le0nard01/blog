@@ -5,7 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 
-import { SiReact } from "react-icons/si";
+import { GiDuck } from "react-icons/gi";
 import { VscGithubInverted } from "react-icons/vsc";
 import Dark from "styles/dark.json";
 import Light from "styles/light.json";
@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
           <Link href="/">
             <a href="/">
               <span className="flex items-center gap-x-2">
-                <SiReact className="inline-block" />
+                <GiDuck className="inline-block" />
                 le0nard01 - Blog
               </span>
             </a>
