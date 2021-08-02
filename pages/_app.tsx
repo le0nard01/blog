@@ -14,9 +14,10 @@ import "../styles/globals.css";
 const googleFont = "https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap";
 
 const Me = {
-  TWITTER: "https://twitter.com/garcez_allan",
-  GITHUB: "https://github.com/g4rcez",
-  LINKEDIN: "https://www.linkedin.com/in/allan-garcez/",
+  //TWITTER: "https://twitter.com/garcez_allan",
+  TELEGRAM: "https://t.me/le0nard01",
+  GITHUB: "https://github.com/le0nard01",
+  LINKEDIN: "https://www.linkedin.com/in/leonardooste/",
 };
 
 function MyApp({ Component, pageProps }) {
@@ -56,7 +57,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="manifest" href="/manifest.json" />
         <meta name="keywords" content="Javascript,Typescript,React,CSS,HTML,Frontend,Microfrontend,Software Engineer" />
-        <meta name="twitter:creator" content="@garcez_allan" />
+        <meta name="telegram:creator" content="@le0nard01" />
         <meta name="theme-color" content={themeColor} />
       </Head>
       <header className="w-full flex flex-wrap gap-y-8 justify-center items-center mb-8 mt-2 text-lg">
@@ -87,21 +88,21 @@ function MyApp({ Component, pageProps }) {
             <VscGithubInverted />
           </a>
           <a
-            href={Me.TWITTER}
-            title="My twitter"
-            className="cursor-pointer transition-colors duration-500 hover:text-twitter"
-          >
-            <span className="sr-only">My Twitter</span>
-
-            <FaTelegramPlane />
-          </a>
-          <a
             href={Me.LINKEDIN}
             title="My Linkedin"
             className="cursor-pointer transition-colors duration-500 hover:text-linkedin"
           >
             <span className="sr-only">My Linkedin</span>
             <FaLinkedin />
+          </a>
+          <a
+            href={Me.TELEGRAM}
+            title="My telegram"
+            className="cursor-pointer transition-colors duration-500 hover:text-telegram"
+          >
+            <span className="sr-only">My Telegram</span>
+
+            <FaTelegramPlane />
           </a>
         </div>
         <div className="w-full block text-xs text-center">
