@@ -1,11 +1,11 @@
 ---
 useFolks: true
 subjects: ["openstack","installation","allinone","single node"]
-title: "OpenStack AllInOne from Scratch"
+title: "OpenStack All-In-One from Scratch!"
 language: "pt-br"
 translations: ["pt-br"]
 date: "2021-07-02T14:30:00.999Z"
-description: "Instalação do OpenStack na mão, All-In-One e com Single NIC."
+description: "Instalação do OpenStack na mão (Sem a utilização de scripts), All-In-One e Single NIC."
 ---
 
 # Inicio
@@ -53,7 +53,7 @@ Cada serviço possui uma atividade dentro do ambiente, que irá fazer interaçã
 
 Dentro do escopo de serviços vitais para o funcionamento mínimo do OpenStack, há apenas 5 serviços: Serviço de identidade (**keystone**), Serviço de Imagem (**glance**), Serviço de Recurso (**placement**), Serviço de Computação (**nova**), Serviço de Redes (**neutron**). Com o funcionamento desses serviços é possível fazer o Deploy de uma instância. 
 
-## Pré-Requisitos
+### *Pré-Requisitos*
 
 Estarei subindo o projeto em uma máquina com as seguintes configurações: 
 
@@ -337,7 +337,7 @@ O Keystone é serviço de autenticação do OpenStack, ele orquestra as autentic
 
 ![OpenStack Keystone architecture | Download Scientific Diagram](https://www.researchgate.net/profile/Carlos-Da-Silva-17/publication/327680691/figure/fig3/AS:671532485468170@1537117229732/OpenStack-Keystone-architecture.png)
 
-#### *Pré-requisitos*
+### *Pré-requisitos*
 
 Vamos começar a instalação criando um banco de dados e um usuário para este serviço (A maioria dos serviços precisam de um banco de dados próprio, então este processo se repete diversas vezes), primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -355,7 +355,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' \
 IDENTIFIED BY 'KEYSTONE_DBPASS';
 ```
 
-#### *Instalação e configuração*
+### *Instalação e configuração*
 
 Primeiramente instale o pacote do keystone, apache e do WSGI:
 
@@ -401,7 +401,7 @@ keystone-manage bootstrap --bootstrap-password ADMIN_PASS \
   --bootstrap-region-id RegionOne
 ```
 
-##### *Configuração do Apache e Finalização*
+#### *Configuração do Apache e Finalização*
 
 Edite o arquivo **/etc/httpd/conf/httpd.conf** e configure o *ServerName* igual ao host configurado anteriormente (Verifique se o campo já está ativo, ou crie-o):
 
@@ -512,14 +512,14 @@ $ openstack token issue
 ...
 ```
 
-## Glance
+# Glance
 ###### [A instalação é parecida com a documentação](https://docs.openstack.org/glance/wallaby/install/install-rdo.html)
 
 Glance é o serviço do OpenStack que vai gerenciar as imagens, ele faz o upload das imagens e libera as mesmas para as instancias, ele é bem simples e de fácil entendimento. Por exemplo, você precisa fazer um deploy de uma instancia com Ubuntu, então é necessário subir a imagem do Ubuntu e providencia-o para a instância, isto é feito tudo por ele.
 
 ![img](https://static.packt-cdn.com/products/9781783986965/graphics/B0B01770_03_01.jpg)
 
-##### *Pré-requisito*
+### *Pré-requisito*
 
 Primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -589,7 +589,7 @@ $ openstack endpoint create --region RegionOne image admin http://openstack:9292
 ...
 ```
 
-##### *Instalação e Configuração*
+### *Instalação e Configuração*
 
 Instale o pacote do glance:
 
@@ -670,13 +670,13 @@ openstack image list
 +--------------------------------------+---------------------+--------+
 ```
 
-## Placement
+# Placement
 
 ###### [A instalação é diferente da documentação](https://docs.openstack.org/placement/wallaby/install/install-rdo.html)
 
 Este serviço irá gerenciar os recursos dos nós de computação (nova-compute) através de uma REST API, por exemplo, ela manuseia a liberação de vCPU, vGPU, Memoria RAM, Disco... para um projeto/instância. Ela foi originalmente criada dentro do nova, mas foi separada para um serviço a parte. É um serviço bem dinâmico, com capacidade de criação de classes de recursos. É um serviço simples comparado com os demais que abrangem o OpenStack, e de simples instalação e manuseio.
 
-##### *Pré-requisitos*
+### *Pré-requisitos*
 
 Primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -748,7 +748,7 @@ $ openstack endpoint create --region RegionOne placement admin http://openstack:
 ...
 ```
 
-##### *Instalação e configuração*
+### *Instalação e configuração*
 
 Instale os pacotes do placement:
 
@@ -854,7 +854,7 @@ openstack resource class list
 ...
 ```
 
-## Nova
+# Nova
 
 ###### [A instalação é diferente da documentação](https://docs.openstack.org/nova/latest/install/controller-install-obs.html)
 
@@ -862,7 +862,7 @@ Este é o serviço de compute, aonde irá fazer a virtualização, deploy, manag
 
 <img src="https://docs.openstack.org/nova/latest/_images/architecture.svg" alt="../_images/architecture.svg" style="zoom: 50%;" />
 
-##### *Pré-requisitos*
+### *Pré-requisitos*
 
 Primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -951,7 +951,7 @@ $ openstack endpoint create --region RegionOne nova admin http://openstack:8774/
 ...
 ```
 
-##### *Instalação e configuração*
+### *Instalação e configuração*
 
 Instale os pacotes do nova-api, nova-conductor, nova-nonvcproxym, nova-compute e o nova-scheduler:
 
@@ -1120,7 +1120,7 @@ nova-status upgrade check
 
 *Relembre-se de que ainda não configuramos o bloco do neutron dentro das configurações do nova.conf. Mas a configuração é bem simples, é apenas de conexão com o neutron, e nada mais. Também se certifique-se de que não apresenta nenhum erro nos logs /var/log/nova/\*.log*
 
-## Neutron
+# Neutron
 
 ###### [A instalação é diferente da documentação](https://docs.openstack.org/neutron/wallaby/install/controller-install-rdo.html)
 
@@ -1128,7 +1128,7 @@ O serviço de redes do OpenStack, foi para mim o mais complexo de se lidar, é o
 
 <img src="https://docs.openstack.org/security-guide/_images/sdn-connections.png" alt="https://docs.openstack.org/security-guide/_images/sdn-connections.png" style="zoom:80%;" />
 
-##### *Pré-requisitos*
+### *Pré-requisitos*
 
 Primeiramente acesse o MySQL CLI com a senha cadastrada via `mysql_secure_installation`:
 
@@ -1205,7 +1205,7 @@ $ openstack endpoint create --region RegionOne neutron admin http://openstack:96
 ...
 ```
 
-##### *Instalação e configuração*
+### *Instalação e configuração*
 
 Como descrito no artigo, estarei fazendo o deploy do OpenStack com apenas uma NIC(Adaptador de Rede), utilizando a estrutura de Bridge, então os IP's da instancias estarão na nossa LAN 192.168.15.0/24, e cada instancia terá um IP próprio dentro da Pool de IP's do nosso roteador. Acompanhe também a [documentação](https://docs.openstack.org/neutron/wallaby/admin/deploy-ovs-provider.html) desta estrutura.
 
@@ -1351,7 +1351,7 @@ service_metadata_proxy = true
 metadata_proxy_shared_secret = METADATA_SECRET
 ```
 
-##### *Finalização*
+### *Finalização*
 
 Precisamos configurar o bridge pelo **OpenvSwitch**, faça os passos da maneira correta para não perdemos a conexão com o nosso Host, verifique bem as informações antes de adicionar a port do Bridge. Primeiro, configure os arquivos **/etc/sysconfig/network-scripts/ifcfg-br-ex** com os dados da sua interface de rede **ifcfg-XXX** *(Recomendo fazer um backup do arquivo ifcfg-XXX da sua interface, no meu caso, ifcfg-enp5s0)*. Configurações do **ifcfg-br-ex**: 
 
@@ -1407,7 +1407,7 @@ openstack network agent list
 +----+--------------------+-----------+-------+-------+---------------------------+
 ```
 
-## Deploy da instância
+# Deploy da instância
 
 ###### [O funcionamento é diferente da documentação](https://docs.openstack.org/install-guide/launch-instance.html)
 
@@ -1479,16 +1479,10 @@ ssh cirros@192.168.15.233
 $
 ```
 
-
-
-## Fim
+# Fim
 
 Bom, neste artigo tratei esta instalação do OpenStack comando por comando, linha por linha. Foi uma escrita extensa mas de alta recomendação para quem está começando, assim como eu. A documentação de cara pode ser complicada, ainda mais por parte do Neutron/Redes.
 
 Ainda pretendo abordar outros componentes e estruturas do OpenStack, estou montando mais uma maquina para montar um cluster e uma arquitetura mais *enterprise* e complexa. 
 
 Espero que tenham gostado. Qualquer sugestão é bem vinda.
-
-### Contatos:
-
-### *[Github](https://github.com/le0nard01) | [Linkedin](https://www.linkedin.com/in/leonardooste/) | [Telegram](https://t.me/le0nard01)*
