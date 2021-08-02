@@ -7,13 +7,17 @@
   color: var(--primary-link);
   font-weight: bolder;
 }
+/*le0nard01*/
 .markdown h1+h6 {
 	font-style: italic;
 	margin-top: -24px;
   font-size: 90%;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
-
+.remark-highlight {
+  margin-bottom: 16px;
+}
+/*end le0nard01*/
 .markdown h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
