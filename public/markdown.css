@@ -72,7 +72,7 @@
   padding-left: 4px;
   border-radius: 5px;
 }
-.markdown code:-webkit-any([class]){
+.markdown code:has([class]){
   padding: 0.5em;
   padding-left: 1em;
 }
