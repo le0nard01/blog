@@ -59,7 +59,7 @@
 .markdown p {
   margin-bottom: 1rem;
 }
-.markdown .language-unknown {
+.markdown code:not([class]) {
   padding-left: 4px;
   border-radius: 5px;
 }
