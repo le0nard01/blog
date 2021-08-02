@@ -6,7 +6,7 @@
     "primary": {
         "DEFAULT": "#0a45f5",
         "link": "#4064d0",
-        "dark": "#1919bd",
+        "dark": "#6886bf",
         "contrast": "#ffffff"
     },
     "danger": {
