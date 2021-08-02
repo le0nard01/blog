@@ -85,7 +85,7 @@ Lembrando que, para virtualizações *Bare-Metal*, é necessário conferir se se
 Estarei utilizando a principio 16 GB de RAM e 330GB de HDD, mas com mais espaço disponível dentro do disco. As partições estão em LVM, para futuras mudanças de espaço das mesmas. Recomendo a utilização de EXT4 ao invés de XFS. Em um ambiente de testes como o meu, é possível utilizar menos recursos.
 
 # Ambiente
-[A instalação é parecida com a documentação](https://docs.openstack.org/install-guide/environment.html)
+###### [A instalação é parecida com a documentação](https://docs.openstack.org/install-guide/environment.html)
 
 É necessário preparar nossa máquina antes, fazendo alguns ajustes, antes de começar instalação do OpenStack.
 
