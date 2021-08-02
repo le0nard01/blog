@@ -25,8 +25,8 @@
     "on-base": "#21272d",
     "base": "#f1f1f1",
     "code": {
-        "plain": "#21272d",
-        "bg": "#f1f1f1"
+        "plain": "#f1f1f1",
+        "bg": "#21272d"
     },
     "telegram": "#4dc1ff",
     "github": "#b300b3",
