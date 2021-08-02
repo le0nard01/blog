@@ -440,7 +440,7 @@ export OS_IMAGE_API_VERSION=2
 
 *Domain, projects, users e roles* é a base da arquitetura de identificação do keystone, recomendo a leitura da [documentação da arquitetura](https://docs.openstack.org/keystone/wallaby/getting-started/architecture.html) para uma compreensão melhor e necessária, irei criar os campos baseado na documentação de instalação básica.
 
-Primeiramente, execute um **". adminrc"** para importar as variáveis para seu ambiente, para poder executar os comandos do openstack-cli.
+Primeiramente, execute um `. adminrc` para importar as variáveis para seu ambiente, para poder executar os comandos do openstack-cli.
 
 Utilizaremos o domain default, que já existe por padrão. Criaremos um projeto de serviço, para utilização dos serviços: 
 
@@ -537,7 +537,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' \
   IDENTIFIED BY 'GLANCE_DBPASS';
 ```
 
-Execute o **". adminrc"** para adentrar no usuário admin, após isso crie o user glance e substitua GLANCE_PASS pela senha do glance (Anote a senha, ela será utilizada nas configurações), também adicione o role admin ao glance:
+Execute o `. adminrc` para adentrar no usuário admin, após isso crie o user glance e substitua GLANCE_PASS pela senha do glance (Anote a senha, ela será utilizada nas configurações), também adicione o role admin ao glance:
 
 ```bash
 $ openstack user create --domain default --password GLANCE_PASS glance
@@ -644,7 +644,7 @@ systemctl start openstack-glance-api
 systemctl status openstack-glance-api
 ```
 
-Para testar o funcionamento do glance, vamos baixar a imagem do CirrOS e fazer um upload para o glance. Primeiro, execute um ". adminrc" e baixe a imagem do CirrOS com wget:
+Para testar o funcionamento do glance, vamos baixar a imagem do CirrOS e fazer um upload para o glance. Primeiro, execute um `. adminrc` e baixe a imagem do CirrOS com wget:
 
 ```bash
 wget http://download.cirros-cloud.net/0.5.0/cirros-0.5.0-x86_64-disk.img
@@ -694,7 +694,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' \
   IDENTIFIED BY 'PLACEMENT_DBPASS';
 ```
 
-Execute o **". adminrc"** para adentrar no usuário admin, após isso crie o user placement e substitua a senha *PLACEMENT_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o role admin ao placement:
+Execute o `. adminrc` para adentrar no usuário admin, após isso crie o user placement e substitua a senha *PLACEMENT_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o role admin ao placement:
 
 ```bash
 $ openstack user create --domain default --password PLACEMENT_PASS placement
@@ -819,7 +819,7 @@ systemctl restart httpd
 systemctl status httpd
 ```
 
-Para testar o funcionamento do placement, vamos executar alguns comandos, primeiro vamos checar o status do placement com o comando placement-status, não se esqueça de executar **". adminrc"**:
+Para testar o funcionamento do placement, vamos executar alguns comandos, primeiro vamos checar o status do placement com o comando placement-status, não se esqueça de executar `. adminrc`:
 
 ```bash
 sudo placement-status upgrade check
@@ -897,7 +897,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' \
   IDENTIFIED BY 'NOVA_DBPASS';
 ```
 
-Execute o **". adminrc"** para adentrar no usuário admin, após isso crie o user nova e substitua a senha *NOVA_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o *role admin* ao nova:
+Execute o `. adminrc` para adentrar no usuário admin, após isso crie o user nova e substitua a senha *NOVA_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o *role admin* ao nova:
 
 ```bash
 $ openstack user create --domain default --password NOVA_PASS nova
@@ -1151,7 +1151,7 @@ MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
   IDENTIFIED BY 'NEUTRON_DBPASS';
 ```
 
-Execute o **". adminrc"** para adentrar no usuário admin, após isso crie o user neutron e substitua a senha *NEUTRON_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o *role admin* ao neutron:
+Execute o `. adminrc` para adentrar no usuário admin, após isso crie o user neutron e substitua a senha *NEUTRON_PASS* (Anote a senha, ela será utilizada nas configurações), também adicione o *role admin* ao neutron:
 
 ```bash
 $ openstack user create --domain default --password NEUTRON_PASS neutron
