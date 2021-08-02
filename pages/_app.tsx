@@ -91,6 +91,7 @@ function MyApp({ Component, pageProps }) {
             <span className="sr-only">My Github</span>
 
             <VscGithubInverted />
+          </a>
           <a
             href={Me.LINKEDIN}
             title="My Linkedin"
