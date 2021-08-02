@@ -3,8 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FaLinkedin } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
+
 import { SiReact } from "react-icons/si";
-import { VscGithubInverted, VscTwitter } from "react-icons/vsc";
+import { VscGithubInverted } from "react-icons/vsc";
 import Dark from "styles/dark.json";
 import Light from "styles/light.json";
 import "../styles/globals.css";
@@ -91,7 +93,7 @@ function MyApp({ Component, pageProps }) {
           >
             <span className="sr-only">My Twitter</span>
 
-            <VscTwitter />
+            <FaTelegramPlane />
           </a>
           <a
             href={Me.LINKEDIN}
