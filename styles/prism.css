@@ -30,6 +30,8 @@ pre {
 
 code[class*="language-"],
 pre[class*="language-"] {
+  padding: 0.5em; /*le0nard01*/
+  padding-left: 1em;
   color: var(--code-plain);
   background: none;
   font-family: "Fira Code", monospace;

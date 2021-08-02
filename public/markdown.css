@@ -72,10 +72,6 @@
   padding-left: 4px;
   border-radius: 5px;
 }
-.markdown pre:has([class]){
-  padding: 0.5em;
-  padding-left: 1em;
-}
 .markdown .language-unknown,
 .markdown pre,
 .markdown code {
