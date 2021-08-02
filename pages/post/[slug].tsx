@@ -130,7 +130,7 @@ export const Component = ({ post, adjacentPosts }: Props) => {
       <Head>
         <meta name="description" content={post.description} />
         <meta name="keywords" content={post.subjects.join(",")} />
-        <title>Le0nard01 Blog | {post.title}</title>
+        <title>Leonardo Oste - le0nard01 | {post.title}</title>
         <link rel="stylesheet" href="/markdown.css" as="style" />
       </Head>
       <header className="mb-8 w-full container flex flex-col flex-wrap">

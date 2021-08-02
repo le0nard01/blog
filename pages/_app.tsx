@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <main className="w-full container mx-auto md:px-6 px-4 block md:max-w-6xl">
       <Head>
-        <title>le0nard01</title>
+        <title>Leonardo Oste - le0nard01</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
         <meta name="theme-color" content="#21272d" />
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
             <a href="/">
               <span className="flex items-center gap-x-2">
                 <GiDuck className="inline-block" />
-                le0nard01 - Blog
+                Leonardo Oste - le0nard01
               </span>
             </a>
           </Link>
