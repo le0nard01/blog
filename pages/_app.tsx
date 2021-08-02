@@ -49,6 +49,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
         <meta name="theme-color" content="#21272d" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png"></link>
         <link href={googleFont} rel="stylesheet" />
         <link rel="preload" href={googleFont} as="style" onLoad={(e) => ((e.target as any).rel = "stylesheet")} />
         <meta
