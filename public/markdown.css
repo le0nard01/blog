@@ -7,6 +7,11 @@
   color: var(--primary-link);
   font-weight: bolder;
 }
+.markdown h2+h6 {
+	font-style: italic;
+	margin-top: -24px;
+  font-size: 90%;
+}
 
 .markdown h1 {
   font-size: 1.875rem;

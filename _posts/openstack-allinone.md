@@ -5,7 +5,7 @@ title: "OpenStack All-In-One from Scratch!"
 language: "pt-br"
 translations: ["pt-br"]
 date: "2021-07-02T14:30:00.999Z"
-description: "Instalação do OpenStack na mão (Sem a utilização de scripts), All-In-One e Single NIC."
+description: "Instalação do OpenStack na mão! All-In-One e Single NIC."
 ---
 
 # Inicio
