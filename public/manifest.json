@@ -1,8 +1,8 @@
 {
     "name": "Le0nard01 Blog - Leonardo Oste",
     "short_name": "Le0nard01 Blog",
-    "theme_color": "#21272d",
-    "background_color": "#21272d",
+    "theme_color": "#2b333b",
+    "background_color": "#2b333b",
     "display": "fullscreen",
     "orientation": "portrait",
     "scope": "/",
