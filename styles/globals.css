@@ -3,6 +3,10 @@
 @import "tailwindcss/utilities";
 @import "./prism.css";
 
+button:focus {
+  outline: none;
+}
+
 :root {
   --fonts: "Inter", -apple-system, BlinkMacSystemFont, Roboto, Cantarell, Fira Sans, Droid Sans, sans-serif;
 }
