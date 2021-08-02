@@ -4,9 +4,9 @@
     "current": "currentColor",
     "gray": "#373c42",
     "primary": {
-        "DEFAULT": "#a30af3",
-        "link": "#a069bd",
-        "dark": "#7207aa",
+        "DEFAULT": "#0a45f5",
+        "link": "#6a7fbe",
+        "dark": "#0707ab",
         "contrast": "#ffffff"
     },
     "danger": {
