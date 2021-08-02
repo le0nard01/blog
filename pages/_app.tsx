@@ -98,7 +98,7 @@ function MyApp({ Component, pageProps }) {
           <a
             href={Me.TELEGRAM}
             title="My Telegram"
-            className="cursor-pointer transition-colors duration-500 hover:text-telegram"
+            className="cursor-pointer transition-colors duration-500 hover:text-linkedin"
           >
             <span className="sr-only">My Telegram</span>
 
