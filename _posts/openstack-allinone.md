@@ -38,7 +38,7 @@ Este artigo replica em grande parte a documentação oficial do OpenStack, com a
 Vou passar algumas dicas e scripts que podem ajudar durante o processo, são muitos comandos repetidos e uns **aliases** ajudam na digitação *(Principalmente o alias do egrep)*:
 
 ```bash
-alias s="sudo systemctl " 
+alias s="sudo systemctl "
 alias d="sudo dnf install -y " # Instalar pacotes e aceitar, só digitar "d pacote pacote2"
 alias scat="sudo cat " 
 alias snano="sudo nano " 
@@ -80,7 +80,6 @@ Rede:
     Meu ip:  192.168.15.15
     Gateway: 192.168.15.1
     Mascara: 255.255.255.0
-
 ```
 
 Lembrando que, para virtualizações *Bare-Metal*, é necessário conferir se seu processador possui a tecnologia de  virtualização, VT-x para processadores Intel e AMD-V para processadores AMD. Essa opção pode vir desabilitada dentro da BIOS, é necessário verificar. E dentro do Linux, é possível rodar o comando `egrep ‘(vmx|svm)’ /proc/cpuinfo` para ver se é possível virtualizar (Caso já esteja ativo na BIOS). É possível ter uma certeza também via site do fabricante. 
