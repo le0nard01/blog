@@ -29,6 +29,7 @@
 .markdown h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
+  margin-bottom: 16px;
 }
 
 .markdown h4 {
