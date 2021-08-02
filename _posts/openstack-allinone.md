@@ -43,6 +43,10 @@ alias snano="sudo nano "
 alias ccat="sudo egrep -v '^\s*(#|$)' " # Comando para ler arquivos de configurações sem os comentarios, assim fica mais limpo de ve e configurar.
 ```
 
+`bash
+teste
+`
+
 # Estrutura 
 
 A estrutura do OpenStack é bem subdividida em diversas API, e cada uma cuida de um setor dentro do eco-sistema, comumente muito bem interligadas. Darei uma breve explicação de cada nesta seção.
