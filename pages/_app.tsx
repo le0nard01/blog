@@ -53,10 +53,10 @@ function MyApp({ Component, pageProps }) {
         <link rel="preload" href={googleFont} as="style" onLoad={(e) => ((e.target as any).rel = "stylesheet")} />
         <meta
           name="description"
-          content="Javascript, Typescript, React e provas de conceito sobre diversos casos de frontend"
+          content="Amante da lógica, estudos e artigos sobre OpenStack, Criptografia, Machine Learning entre outros."
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="keywords" content="Javascript,Typescript,React,CSS,HTML,Frontend,Microfrontend,Software Engineer" />
+        <meta name="keywords" content="C++,Python,Openstack,Kubernetes,Machine Learning,Automation,Data Engineer" />
         <meta name="telegram:creator" content="@le0nard01" />
         <meta name="theme-color" content={themeColor} />
       </Head>
