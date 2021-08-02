@@ -142,21 +142,6 @@ export const Component = ({ post, adjacentPosts }: Props) => {
           {date} | {post.readingTime} min read
         </time>
       </header>
-      <section className="table-of-content my-8">
-        <h2 className="text-xl font-bold mb-2">Table of Content</h2>
-        <ul className="my-4">
-          {titles.map((x) => (
-            <li
-              key={x.id}
-              className={`transition-colors my-1 duration-500 hover:underline text-primary-link hover:text-primary ${
-                Tags[x.tag]
-              }`}
-            >
-              <a href={`#${x.id}`}>{x.text}</a>
-            </li>
-          ))}
-        </ul>
-      </section>
       <section
         ref={ref}
         className="markdown prose lg:prose-xl block w-full min-w-full"
@@ -171,3 +156,19 @@ export const Component = ({ post, adjacentPosts }: Props) => {
 };
 
 export default Component;
+
+/*<section className="table-of-content my-8">
+       <h2 className="text-xl font-bold mb-2">Table of Content</h2>
+        <ul className="my-4">
+          {titles.map((x) => (
+            <li
+              key={x.id}
+              className={`transition-colors my-1 duration-500 hover:underline text-primary-link hover:text-primary ${
+                Tags[x.tag]
+              }`}
+            >
+              <a href={`#${x.id}`}>{x.text}</a>
+            </li>
+          ))}
+        </ul>
+      </section> --!> */
