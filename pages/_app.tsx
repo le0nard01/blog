@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <main className="w-full container mx-auto md:px-6 px-4 block md:max-w-6xl">
       <Head>
-        <title>Le0nard01 - Blog</title>
+        <title>le0nard01</title>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1" />
         <meta name="theme-color" content="#21272d" />
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
             <a href="/">
               <span className="flex items-center gap-x-2">
                 <SiReact className="inline-block" />
-                Le0nard01 - Blog
+                le0nard01 - Blog
               </span>
             </a>
           </Link>
