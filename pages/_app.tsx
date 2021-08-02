@@ -122,6 +122,10 @@ function MyApp({ Component, pageProps }) {
           <b className="mx-2">|</b> Brand Icons by{" "}
           <a className="text-primary-link hover:underline italic" href="https://react-icons.github.io/react-icons/">
             react-icons
+          </a>{" "}
+          <b className="mx-2">|</b> Blog developed by{" "}
+          <a className="text-primary-link hover:underline italic" href="https://github.com/g4rcez">
+            g4rcez
           </a>
         </div>
       </footer>
