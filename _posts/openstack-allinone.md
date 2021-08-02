@@ -1453,9 +1453,9 @@ E por fim, criar o servidor com o nome **InstanciaCirrOS**:
 openstack server create --flavor 0 --image "CirrOS 0.5.0 x86_64" --nic net-id=RedePrincipal InstanciaCirrOS --key-name ChaveSSH
 ```
 
-Vamos verificar se está ativo com o comando **"openstack server list"**:
+Vamos verificar se está ativo com o comando `openstack server list`:
 
-```
+```bash
 openstack server list
 +----+-----------------+--------+------------------------------+
 | ID | Name            | Status | Networks                     |
