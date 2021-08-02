@@ -5,16 +5,16 @@
     "gray": "#9b9da0",
     "primary": {
         "DEFAULT": "#0a45f5",
-        "link": "#6a7fbe",
-        "dark": "#0707ab",
+        "link": "#4064d0",
+        "dark": "#1919bd",
         "contrast": "#ffffff"
     },
     "danger": {
         "DEFAULT": "#ec4646"
     },
     "warn": {
-        "light": "#dfc674",
-        "DEFAULT": "#dfc674"
+        "light": "#df7474",
+        "DEFAULT": "#ee6161"
     },
     "info": {
         "DEFAULT": "#4ca5db"

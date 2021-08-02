@@ -4,17 +4,17 @@
     "current": "currentColor",
     "gray": "#373c42",
     "primary": {
-        "DEFAULT": "#0a45f5",
-        "link": "#6a7fbe",
-        "dark": "#0707ab",
+        "DEFAULT": "#4a77ff",
+        "link": "#647fd2",
+        "dark": "#1919bd",
         "contrast": "#ffffff"
     },
     "danger": {
         "DEFAULT": "#ec4646"
     },
     "warn": {
-        "light": "#fcf1cc",
-        "DEFAULT": "#f8dc81"
+        "light": "#df7474",
+        "DEFAULT": "#ee6161"
     },
     "info": {
         "DEFAULT": "#4ca5db"
