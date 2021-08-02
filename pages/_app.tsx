@@ -83,10 +83,18 @@ function MyApp({ Component, pageProps }) {
       </div>
       <footer className="mb-2">
         <div className="mt-8 mb-4 text-lg flex flex-row justify-center font-bold gap-x-4">
-          <a href={Me.GITHUB} className="cursor-pointer" title="My Github">
+          <!-- </div><a href={Me.GITHUB} className="cursor-pointer" title="My Github">
             <span className="sr-only">My Github</span>
             <VscGithubInverted />
-          </a>
+          </a> -->
+          <a
+            href={Me.GITHUB}
+            title="My Github"
+            className="cursor-pointer transition-colors duration-500 hover:text-github"
+          >
+            <span className="sr-only">My Github</span>
+
+            <VscGithubInverted />
           <a
             href={Me.LINKEDIN}
             title="My Linkedin"
@@ -98,7 +106,7 @@ function MyApp({ Component, pageProps }) {
           <a
             href={Me.TELEGRAM}
             title="My Telegram"
-            className="cursor-pointer transition-colors duration-500 hover:text-linkedin"
+            className="cursor-pointer transition-colors duration-500 hover:text-telegram"
           >
             <span className="sr-only">My Telegram</span>
 
