@@ -1139,7 +1139,7 @@ mysql -u root -p
 Crie um banco de dados para o neutron:
 
 ```bash
-MariaDB [(none)] CREATE DATABASE neutron;
+MariaDB [(none)]> CREATE DATABASE neutron;
 ```
 
 E também garanta todos os privilégios destes bancos para o usuário neutron, o valor NEUTRON_DBPASS é a senha a ser utilizada na conexão pelo usuário:
