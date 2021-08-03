@@ -347,7 +347,7 @@ mysql -u root -p
 
 Crie um banco de dados para o keystone, e também garanta todos os privilégios deste banco para o usuário keystone, o valor KEYSTONE_DBPASS é a senha a ser utilizada na conexão pelo usuário keystone:
 
-````bash
+```bash
 MariaDB [(none)]> CREATE DATABASE keystone;
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
 IDENTIFIED BY 'KEYSTONE_DBPASS';
@@ -529,7 +529,7 @@ mysql -u root -p
 
 Crie um banco de dados para o glance, e também garanta todos os privilégios deste banco para o usuário glance, o valor GLANCE_DBPASS é a senha a ser utilizada na conexão pelo usuário glance:
 
-```mariadb
+```bash
 MariaDB [(none)]> CREATE DATABASE glance;
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' \
   IDENTIFIED BY 'GLANCE_DBPASS';
@@ -686,7 +686,7 @@ mysql -u root -p
 
 Crie um banco de dados para o placement, e também garanta todos os privilégios deste banco para o usuário placement, o valor PLACEMENT_DBPASS é a senha a ser utilizada na conexão pelo usuário placement:
 
-```mariadb
+```bash
 MariaDB [(none)]> CREATE DATABASE placement;
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'localhost' \
   IDENTIFIED BY 'PLACEMENT_DBPASS';
@@ -872,7 +872,7 @@ mysql -u root -p
 
 Crie três banco de dados para o NOVA, o nova_api, nova_cell0, e o nova:
 
-```mariadb
+```bash
 MariaDB [(none)]> CREATE DATABASE nova_api;
 MariaDB [(none)]> CREATE DATABASE nova;
 MariaDB [(none)]> CREATE DATABASE nova_cell0;
@@ -880,7 +880,7 @@ MariaDB [(none)]> CREATE DATABASE nova_cell0;
 
 E também garanta todos os privilégios destes bancos para o usuário nova, o valor NOVA_DBPASS é a senha a ser utilizada na conexão pelo usuário:
 
-```mariadb
+```bash
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' \
   IDENTIFIED BY 'NOVA_DBPASS';
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' \
@@ -1138,13 +1138,13 @@ mysql -u root -p
 
 Crie um banco de dados para o neutron:
 
-```mariadb
+```bash
 MariaDB [(none)] CREATE DATABASE neutron;
 ```
 
 E também garanta todos os privilégios destes bancos para o usuário neutron, o valor NEUTRON_DBPASS é a senha a ser utilizada na conexão pelo usuário:
 
-```mariadb
+```bash
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' \
   IDENTIFIED BY 'NEUTRON_DBPASS';
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' \
@@ -1226,7 +1226,7 @@ Após isto, vamos fazer a configuração do arquivo **/etc/neutron/neutron.conf*
 
 [DEFAULT]
 # Conexão com o mensageiro rabbitMq
-transport_url = rabbit://openstack:RABBIT_PASS@controller
+transport_url = rabbit://openstack:RABBIT_PASS@openstack
 # O main-plugin da rede
 core_plugin = ml2
 # Deixar nulo para desativar os plugins de service.
