@@ -1479,7 +1479,7 @@ ssh cirros@192.168.15.233
 $
 ```
 
-# Fim
+# Conclusão
 
 Bom, neste artigo tratei esta instalação do OpenStack comando por comando, linha por linha. Foi uma escrita extensa mas de alta recomendação para quem está começando, assim como eu. A documentação de cara pode ser complicada, ainda mais por parte do Neutron/Redes.
 
