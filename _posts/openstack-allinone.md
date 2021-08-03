@@ -347,7 +347,7 @@ mysql -u root -p
 
 Crie um banco de dados para o keystone, e também garanta todos os privilégios deste banco para o usuário keystone, o valor KEYSTONE_DBPASS é a senha a ser utilizada na conexão pelo usuário keystone:
 
-```mariadb
+````bash
 MariaDB [(none)]> CREATE DATABASE keystone;
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' \
 IDENTIFIED BY 'KEYSTONE_DBPASS';
