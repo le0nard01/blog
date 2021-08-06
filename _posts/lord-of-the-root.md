@@ -10,7 +10,7 @@ description: "Write Up do CTF: Lord of the Root."
 
 # [Lord of The Root](https://tryhackme.com/room/lordoftheroot) [PT-BR]
 
-![image-20200728235626619](images/image-20200728235626619.png)
+![image-20200728235626619](/images/image-20200728235626619.png)
 
 De começo podemos analisar as *tags* deste CTF, **portknocking** e **nmap**, então podemos interpretar essas *tags* como uma ajuda nós ajudar *(Que vão poupar algum tempo de enumeração e nos dar um norte...)*
 
