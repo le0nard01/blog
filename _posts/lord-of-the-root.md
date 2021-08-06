@@ -287,5 +287,5 @@ $ cat /tmp/out
 
 **CTF Concluído**! existe algumas outras maneiras de fazer **privesc**, como **buffer overflow** em um arquivo no diretório `/SECRET/door3/file`, provavelmente irei editar esse write-up para incluir esse modo de escalação de privilégio, mas como existe essa falha no **kernel** *(Muito mais simples de se aplicar também...)* e no **MySql** aproveitei elas para conseguir o **root**. Bom essa é minha primeira experiência em escrever write-up, se alguém precisar podem entrar em contato comigo para esclarecermos alguma dúvida, espero que tenham gostado! **: )**
 
-### Link: **https://tryhackme.com/room/lordoftheroot** | Telegram: *@le0nard01*
+### Link: **https://tryhackme.com/room/lordoftheroot**
 
