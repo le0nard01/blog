@@ -5,10 +5,8 @@ title: "Lord of the Root - Write Up"
 language: "pt-br"
 translations: ["pt-br"]
 date: "2020-07-30T14:30:00.999Z"
-description: "Write Up do CTF: Lord of the Root."
+description: "Link: https://tryhackme.com/room/lordoftheroot"
 ---
-
-# [Lord of The Root](https://tryhackme.com/room/lordoftheroot) [PT-BR]
 
 ![image-20200728235626619](/images/image-20200728235626619.png)
 
