@@ -1,6 +1,6 @@
 ---
 useFolks: true
-subjects: ["lorf of the root","tryhackme","CTF","Write Up"]
+subjects: ["tryhackme","CTF","Write Up"]
 title: "Lord of the Root - Write Up"
 language: "pt-br"
 translations: ["pt-br"]
