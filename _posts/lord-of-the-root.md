@@ -51,7 +51,7 @@ Vemos que a porta `1337` foi aberta! Iremos rodar um outro **nmap** com as *flag
 
 ##### > nmap 10.10.88.243 -p22,1337 -sC -sV -T4 --min-rate=20000
 
-```sh
+```bash
 22/tcp   open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.3 (Ubuntu Linux; protocol 2.0)
 | ssh-hostkey: 
 |   1024 3c:3d:e3:8e:35:f9:da:74:20:ef:aa:49:4a:1d:ed:dd (DSA)
@@ -122,7 +122,7 @@ A única coisa que importa para nós é a ultima linha `username=a&password=a&su
 
 E tem um certo momento aonde o **sqlmap** me retorna um aviso de redirecionamento para o *path* `/978345210/profile.php` com o seguinte *warning*: 
 
-```
+```bash
 got a 302 redirect to 'http://10.10.88.243:1337/978345210/profile.php'. Do you want to follow? [Y/n] 
 ```
 
