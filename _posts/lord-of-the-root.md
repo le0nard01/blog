@@ -30,7 +30,7 @@ Vemos que apenas a porta `22` está abertas, bom, só com o **SSH** vamos acessa
 
 ##### > ssh teste@10.10.88.243
 
-![image-20200730122129762](images/image-20200730122129762.png)
+![image-20200730122129762](/images/image-20200730122129762.png)
 
 `Knock Friend to Enter` e `Easy as 1,2,3` é as informações que o **SSH** nós dá, no começo desse Write-up eu disse que as *tags* do CTF seriam uma dica para nós, conseguimos atrelar as informações **Bata amigo para entrar** e **fácil como 1,2,3** deduzindo que é necessário fazermos um **knocking** nas portas 1,2 e 3 em sequência. Conseguimos fazer isso facilmente com o **nmap** com as flags **-r** *(Para ele fazer o scan em sequência e não com as portas escolhidas aleatóriamente)*:
 
@@ -66,7 +66,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Notamos que está rodando o Apache na porta `1337`, ao acessar deparamos com uma imagem no *path* `/images/iwilldoit.jpg`, mas que não contem nada de interessante no código-fonte da página ou na imagem. Se acessarmos **/images/** está com **Directory Listing** liberado, mas não tem nada útil nas imagens contidas nesse diretório que nós podemos aproveitar, após verificar isso tentei fazer uma enumeração manual de alguns diretórios web, acessei `/index.php`:
 
-![image-20200730123635844](images/image-20200730123635844.png)
+![image-20200730123635844](/images/image-20200730123635844.png)
 
 E tambem notei que qualquer página que você tenta acessar aleatóriamente ele retorna essa mesma resposta, ou seja, essa página na verdade é um tratamento de **HTTP 404**, então fui ver o seu código-fonte e existe um comentário interessante dentro dele:
 
@@ -93,7 +93,7 @@ Descodificando em `base64` pelo bash ele me retorna um outro **base64**, então 
 
 Acessando o arquivo `/978345210/index.php` ele retorna uma tela de **login** simples:
 
-![image-20200729004233818](images/image-20200729004233818.png) 
+![image-20200729004233818](/images/image-20200729004233818.png) 
 
 Verifiquei o código-fonte da página para tentar achar alguma coisa, mas não tinha nada interessante. Logo pensei em uma ferramenta que eu em rodar nessa situação que foi o **sqlmap**, primeiro preciso analisar como é a requisição *POST* para eu rodar baseado nela, iniciei o **burpsuite**, coloquei o *proxy* no browser, iniciei a página, escrevi qualquer *user* e *password*, e o resultado foi esse:
 
@@ -132,7 +132,7 @@ Isso me indicaria um suposto **bypass** na autenticação do *login*, então eu 
 
 e verificando no **BURP** nós encontramos a requisição *POST* com o **bypass**.
 
-![image-20200729010822220](images/image-20200729010822220.png)
+![image-20200729010822220](/images/image-20200729010822220.png)
 
 `username=a%27+UNION+ALL+SELECT+NULL%2CNULL--+-&password=a&submit=+Login+`
 
@@ -163,7 +163,7 @@ Tem um Banco de dados que me interessa, chamado `Webapp` com os usuários e senh
 
 **Opa!** Conseguimos conectar pelo segundo usuário `smeagol:MyPrecious####`!
 
-![image-20200729015227841](images/image-20200729015227841.png)
+![image-20200729015227841](/images/image-20200729015227841.png)
 
 ### 1. Exploit no Kernel
 
@@ -176,7 +176,7 @@ Linux LordOfTheRoot 3.19.0-25-generic #26~14.04.1-Ubuntu SMP Fri Jul 24 21:18:00
 
 Podemos verificar que a versão `3.19.0-25-generic` do **kernel** e também junto com a versão do **Ubuntu** `14.04-1` possui um forte **exploit** de **overlayfs**, usando a ferramenta ***searchsploit*** ou procurando no site  ***exploit-db*** conseguimos achar esse **exploit**: 
 
-![image-20200729020508690](images/image-20200729020508690.png)
+![image-20200729020508690](/images/image-20200729020508690.png)
 
 ###### Exploit-db: https://www.exploit-db.com/exploits/39166
 
@@ -214,11 +214,11 @@ root@LordOfTheRoot:/root# cat Flag.txt
 
 Se rodarmos um **ps aux | grep mysql** para ver o estado do **MySql**, vemos que ele está rodando como **root**, isso é algo desnecessario e que pode comprometer o servidor que muitos administradores cometem, rodamos **mysql -V** para ver a versão do mysql se é vulneravel à alguma exploração:
 
-![image-20200730131059838](images/image-20200730131059838.png)
+![image-20200730131059838](/images/image-20200730131059838.png)
 
 Versão `5.5.44` conseguimos usar um **exploit** de **PrivEsc** do mysql quando ele está rodando como root, primeiro vamos conseguir o login/senha do mysql dando **cat** no arquivo `/var/www/978345210/login.php`:
 
-![image-20200730132043043](images/image-20200730132043043.png)
+![image-20200730132043043](/images/image-20200730132043043.png)
 
 Vamos fazer os mesmos passos do que no método passado, baixar o [EXPLOIT](https://www.exploit-db.com/exploits/1518), na minha máquina, abrir um servidor com o python, baixar na máquina local e fazer os passos para explorar:
 
