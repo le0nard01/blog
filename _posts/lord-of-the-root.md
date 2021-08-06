@@ -18,7 +18,7 @@ De começo podemos analisar as *tags* deste CTF, **portknocking** e **nmap**, en
 
 Após dar *Deploy* na maquina, vamos rodar o **nmap** para mapear as portas:
 
-##### > nmap 10.10.88.243 -p- -T4 --min-rate=20000
+`> nmap 10.10.88.243 -p- -T4 --min-rate=20000`
 
 ```bash
 Not shown: 46041 filtered ports, 19493 closed ports
