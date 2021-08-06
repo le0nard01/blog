@@ -5,7 +5,7 @@ title: "Lord of the Root - Write Up"
 language: "pt-br"
 translations: ["pt-br"]
 date: "2020-07-30T14:30:00.999Z"
-description: "Link: https://tryhackme.com/room/lordoftheroot"
+description: "Link novo: https://www.vulnhub.com/entry/lord-of-the-root-101,129/"
 ---
 
 ![image-20200728235626619](/images/image-20200728235626619.png)
@@ -285,5 +285,5 @@ $ cat /tmp/out
 
 **CTF Concluído**! Existe algumas outras maneiras de fazer **privesc**, como **buffer overflow** em um arquivo no diretório `/SECRET/door3/file`, mas como existe essa falha no **kernel** *(Muito mais simples de se aplicar também...)* e no **MySql** aproveitei para conseguir o **root**. Espero que tenham gostado!
 
-### Link: **https://tryhackme.com/room/lordoftheroot**
+### Link: **https://www.vulnhub.com/entry/lord-of-the-root-101,129/**
 
