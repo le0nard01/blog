@@ -252,7 +252,7 @@ smeagol@LordOfTheRoot:/var/www/978345210$ mysql -u root -p
 
 Depois de entrar no modo interativo do **mysql** vamos executar os seguintes passos para conseguir a *flag* e acesso root (Os passos são mostrados em comentarios dentro do exploit baixado, apenas é necessario fazer algumas adaptações para funcionar):
 
-```mysql
+```sql
 mysql> use mysql;
 Database changed
 
