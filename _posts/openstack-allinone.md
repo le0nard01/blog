@@ -1295,6 +1295,12 @@ flat_networks = provider
 network_vlan_ranges = provider
 ```
 
+Após configurar o arquivo ml2_conf.ini, execute o seguinte comando para criar um link desta configuração:
+
+```bash
+ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
+```
+
 Também é necessário configurar os agentes, primeiro o **openvswitch_agent.ini** localizado em **/etc/neutron/plugins/ml2/**:
 
 ```properties
