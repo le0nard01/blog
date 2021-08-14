@@ -1395,8 +1395,8 @@ $ ovs-vsctl add-port br-ex enp5s0; sudo systemctl restart network #Lembrando de 
 Iremos ativar também os serviços do neutron, e reiniciar o nova-compute:
 
 ```bash
-$ systemctl enable neutron-server neutron-dhcp-agent neutron-metadata-agent
-$ systemctl start neutron-server neutron-dhcp-agent neutron-metadata-agent
+$ systemctl enable neutron-server neutron-dhcp-agent neutron-metadata-agent neutron-openvswitch-agent
+$ systemctl start neutron-server neutron-dhcp-agent neutron-metadata-agent neutron-openvswitch-agent
 $ systemctl restart openstack-nova-compute
 ```
 
